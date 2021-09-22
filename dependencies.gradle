@@ -1,5 +1,6 @@
 ext {
     versions = [
+            kotlin           : "1.5.30",
             ok_http          : "4.9.0",
             retrofit         : "2.9.0",
             coroutines       : "1.5.1",
