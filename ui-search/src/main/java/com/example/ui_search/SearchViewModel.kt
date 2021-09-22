@@ -22,7 +22,7 @@ class SearchViewModel @Inject constructor(
     ) { characters, refreshing ->
         SearchContract.State(
             characters = characters.data ?: emptyList(),
-            refreshing = refreshing
+            refreshing = refreshing && characters.data?.isEmpty() ?: false
         )
     }.stateIn(
         scope = viewModelScope,

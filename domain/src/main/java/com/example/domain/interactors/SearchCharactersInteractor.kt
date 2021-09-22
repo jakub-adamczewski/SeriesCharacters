@@ -22,7 +22,7 @@ class SearchCharactersInteractor @Inject constructor(
     private val _characters = MutableSharedFlow<Resource<List<Character>>>()
     val characters: Flow<Resource<List<Character>>> = _characters
         .map {
-            Log.d(TAG, it.error.toString())
+            Log.d(TAG, it.toString())
             it
         }
 

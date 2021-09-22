@@ -7,7 +7,7 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface CharactersDao {
 
-    @Query("SELECT * FROM characters WHERE name LIKE :search")
+    @Query("SELECT * FROM characters WHERE name OR nickname LIKE  '%' || :search || '%'")
     fun getPeople(search: String): Flow<List<Character>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
