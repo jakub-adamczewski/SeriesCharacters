@@ -1,6 +1,7 @@
 package com.example.ui_search
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.View
 import android.widget.SearchView
@@ -66,6 +67,7 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
             charactersSv.apply {
                 setOnQueryTextListener(object : SearchView.OnQueryTextListener {
                     override fun onQueryTextChange(query: String?): Boolean {
+                        Log.d(TAG, "query: $query")
                         viewModel.setEvent(SearchContract.Event.OnQueryChanged(query ?: ""))
                         return true
                     }
@@ -74,6 +76,10 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
                 })
             }
         }
+    }
+
+    companion object {
+        private const val TAG = "SearchFragment"
     }
 
 }

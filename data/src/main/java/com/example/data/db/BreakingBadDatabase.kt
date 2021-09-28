@@ -5,6 +5,6 @@ import androidx.room.RoomDatabase
 import com.example.data.model.Character
 
 @Database(entities = [Character::class], version = 1, exportSchema = false)
-abstract class BrakingBadDatabase : RoomDatabase() {
+abstract class BreakingBadDatabase : RoomDatabase() {
     abstract fun charactersDao(): CharactersDao
 }

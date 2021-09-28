@@ -2,9 +2,11 @@ package com.example.data.di
 
 import android.app.Application
 import androidx.room.Room
-import com.example.data.db.BrakingBadDatabase
+import com.example.data.db.BreakingBadDatabase
+import com.example.data.db.CharactersDao
 import dagger.Module
 import dagger.Provides
+import dagger.Reusable
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
@@ -15,7 +17,6 @@ class DBModule {
 
     @Provides
     @Singleton
-    fun database(app: Application): BrakingBadDatabase =
-        Room.databaseBuilder(app, BrakingBadDatabase::class.java, "star-wars-database").build()
-
+    fun database(app: Application): BreakingBadDatabase =
+        Room.databaseBuilder(app, BreakingBadDatabase::class.java, "star-wars-database").build()
 }

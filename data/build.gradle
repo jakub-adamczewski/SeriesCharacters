@@ -30,8 +30,10 @@ android {
     }
     kotlinOptions {
         jvmTarget = '1.8'
-        freeCompilerArgs += "-Xopt-in=kotlinx.coroutines.ExperimentalCoroutinesApi"
-
+        freeCompilerArgs += [
+                "-Xopt-in=kotlinx.coroutines.ExperimentalCoroutinesApi",
+                "-Xopt-in=kotlin.time.ExperimentalTime"
+        ]
     }
 }
 
@@ -59,6 +61,9 @@ dependencies {
 
     implementation di.hilt
     kapt di.compiler
+
+    implementation test.junit
+    implementation test.turbine
 }
 
 kapt {

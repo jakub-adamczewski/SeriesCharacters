@@ -4,6 +4,7 @@ import android.util.Log
 import com.example.domain.model.Character
 import com.example.domain.repository.CharactersRepository
 import com.example.domain.util.Resource
+import com.example.util.logItems
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -21,10 +22,7 @@ class SearchCharactersInteractor @Inject constructor(
     }
     private val _characters = MutableSharedFlow<Resource<List<Character>>>()
     val characters: Flow<Resource<List<Character>>> = _characters
-        .map {
-            Log.d(TAG, it.toString())
-            it
-        }
+        .logItems(TAG, "characters")
 
     suspend fun searchCharacters(search: String) = withContext(Dispatchers.IO) {
         _characters.emitAll(charactersRepository.getCharacters(search))

@@ -9,6 +9,6 @@ fun <T> Flow<T>.callOnEmit(action: (elem: T) -> Unit) = this.map {
     it
 }
 
-fun <T> Flow<T>.logItems(tag: String) = this.callOnEmit {
-    Log.d(tag, "emit: $it")
+fun <T> Flow<T>.logItems(tag: String, flowName: String) = this.callOnEmit {
+    Log.d(tag, "$flowName emits: $it")
 }
